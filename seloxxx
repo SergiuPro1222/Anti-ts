@@ -16,7 +16,7 @@ ScreenGui.Name = "LKUHASLJDWSADJKSADJJLFWQHESAJLD"
 ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
-ScreenGui.Parent = CoreGui;
+ScreenGui.Parent = CoreGui.RobloxGui;
 
 local Toggles = {};
 local Options = {};
