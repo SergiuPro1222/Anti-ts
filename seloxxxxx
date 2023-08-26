@@ -8,6 +8,7 @@ local RenderStepped = RunService.RenderStepped
 local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local dashwqhgjusjcaseqw = Instance.new('ScreenGui')
+dashwqhgjusjcaseqw.Name = ""
 dashwqhgjusjcaseqw.ZIndexBehavior = Enum.ZIndexBehavior.Global
 dashwqhgjusjcaseqw.Parent = game.CoreGui
 local Toggles = {};
