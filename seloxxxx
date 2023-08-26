@@ -1,16 +1,15 @@
-local InputService = game:GetService('UserInputService');
-local TextService = game:GetService('TextService');
-local CoreGui = game:GetService('CoreGui');
-local Teams = game:GetService('Teams');
-local Players = game:GetService('Players');
+local InputService = game:GetService('UserInputService')
+local TextService = game:GetService('TextService')
+local Teams = game:GetService('Teams')
+local Players = game:GetService('Players')
 local RunService = game:GetService('RunService')
-local TweenService = game:GetService('TweenService');
-local RenderStepped = RunService.RenderStepped;
-local LocalPlayer = Players.LocalPlayer;
-local Mouse = LocalPlayer:GetMouse();
-local ScreenGui = Instance.new('ScreenGui');
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
-ScreenGui.Parent = CoreGui;
+local TweenService = game:GetService('TweenService')
+local RenderStepped = RunService.RenderStepped
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local dashwqhgjusjcaseqw = Instance.new('dashwqhgjusjcaseqw')
+dashwqhgjusjcaseqw.ZIndexBehavior = Enum.ZIndexBehavior.Global
+dashwqhgjusjcaseqw.Parent = game.CoreGui
 local Toggles = {};
 local Options = {};
 getgenv().Toggles = Toggles;
@@ -33,7 +32,7 @@ local Library = {
     DependencyBoxes = {};
 
     Signals = {};
-    ScreenGui = ScreenGui;
+    dashwqhgjusjcaseqw = dashwqhgjusjcaseqw;
 };
 
 local RainbowStep = 0
@@ -187,7 +186,7 @@ function Library:AddToolTip(InfoStr, HoverInstance)
 
         Size = UDim2.fromOffset(X + 5, Y + 4),
         ZIndex = 100,
-        Parent = Library.ScreenGui,
+        Parent = Library.dashwqhgjusjcaseqw,
 
         Visible = false,
     })
@@ -381,14 +380,14 @@ function Library:Unload()
         Library.OnUnload()
     end
 
-    ScreenGui:Destroy()
+    dashwqhgjusjcaseqw:Destroy()
 end
 
 function Library:OnUnload(Callback)
     Library.OnUnload = Callback
 end
 
-Library:GiveSignal(ScreenGui.DescendantRemoving:Connect(function(Instance)
+Library:GiveSignal(dashwqhgjusjcaseqw.DescendantRemoving:Connect(function(Instance)
     if Library.RegistryMap[Instance] then
         Library:RemoveFromRegistry(Instance);
     end;
@@ -443,7 +442,7 @@ do
         });
 
         -- 1/16/23
-        -- Rewrote this to be placed inside the Library ScreenGui
+        -- Rewrote this to be placed inside the Library dashwqhgjusjcaseqw
         -- There was some issue which caused RelativeOffset to be way off
         -- Thus the color picker would never show
 
@@ -455,7 +454,7 @@ do
             Size = UDim2.fromOffset(230, Info.Transparency and 271 or 253);
             Visible = false;
             ZIndex = 15;
-            Parent = ScreenGui,
+            Parent = dashwqhgjusjcaseqw,
         });
 
         DisplayFrame:GetPropertyChangedSignal('AbsolutePosition'):Connect(function()
@@ -664,7 +663,7 @@ do
                 ZIndex = 14,
 
                 Visible = false,
-                Parent = ScreenGui
+                Parent = dashwqhgjusjcaseqw
             })
 
             ContextMenu.Inner = Library:Create('Frame', {
@@ -1050,7 +1049,7 @@ do
             Size = UDim2.new(0, 60, 0, 45 + 2);
             Visible = false;
             ZIndex = 14;
-            Parent = ScreenGui;
+            Parent = dashwqhgjusjcaseqw;
         });
 
         ToggleLabel:GetPropertyChangedSignal('AbsolutePosition'):Connect(function()
@@ -2260,7 +2259,7 @@ do
             BorderColor3 = Color3.new(0, 0, 0);
             ZIndex = 20;
             Visible = false;
-            Parent = ScreenGui;
+            Parent = dashwqhgjusjcaseqw;
         });
 
         local function RecalculateListPosition()
@@ -2675,7 +2674,7 @@ do
         Position = UDim2.new(0, 0, 0, 40);
         Size = UDim2.new(0, 300, 0, 200);
         ZIndex = 100;
-        Parent = ScreenGui;
+        Parent = dashwqhgjusjcaseqw;
     });
 
     Library:Create('UIListLayout', {
@@ -2691,7 +2690,7 @@ do
         Size = UDim2.new(0, 213, 0, 20);
         ZIndex = 200;
         Visible = false;
-        Parent = ScreenGui;
+        Parent = dashwqhgjusjcaseqw;
     });
 
     local WatermarkInner = Library:Create('Frame', {
@@ -2756,7 +2755,7 @@ do
         Size = UDim2.new(0, 210, 0, 20);
         Visible = false;
         ZIndex = 100;
-        Parent = ScreenGui;
+        Parent = dashwqhgjusjcaseqw;
     });
 
     local KeybindInner = Library:Create('Frame', {
@@ -2957,7 +2956,7 @@ function Library:CreateWindow(...)
         Size = Config.Size,
         Visible = false;
         ZIndex = 1;
-        Parent = ScreenGui;
+        Parent = dashwqhgjusjcaseqw;
     });
 
     Library:MakeDraggable(Outer, 25);
@@ -3490,7 +3489,7 @@ function Library:CreateWindow(...)
         Visible = true;
         Text = '';
         Modal = false;
-        Parent = ScreenGui;
+        Parent = dashwqhgjusjcaseqw;
     });
 
     local TransparencyCache = {};
@@ -3526,7 +3525,7 @@ function Library:CreateWindow(...)
                 CursorOutline.Color = Color3.new(0, 0, 0);
                 CursorOutline.Visible = true;
 
-                while Toggled and ScreenGui.Parent do
+                while Toggled and dashwqhgjusjcaseqw.Parent do
                     InputService.MouseIconEnabled = false;
 
                     local mPos = InputService:GetMouseLocation();
